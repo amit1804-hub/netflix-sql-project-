@@ -42,8 +42,23 @@ description varchar(350)
 
 This repository contains an analysis of the content available on Netflix, specifically focusing on the distribution of Movies vs TV Shows.
 
+# Netflix Content Distribution Analysis
+
+This repository contains an analysis of the content available on Netflix, specifically focusing on the distribution of Movies vs TV Shows.
+
 ## Objective
-The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform :
+The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform.
+
+## Query
+
+We use SQL to analyze the `netflix` dataset. The following query is used to count the number of Movies and TV Shows in the dataset:
+
+```sql
+SELECT 
+    type, 
+    COUNT(*)
+FROM netflix
+GROUP BY type;
 
 ## 1. Count the number of Movies vs TV Shows
 
