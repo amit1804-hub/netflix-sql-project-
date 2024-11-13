@@ -43,7 +43,7 @@ description varchar(350)
 This repository contains an analysis of the content available on Netflix, specifically focusing on the distribution of Movies vs TV Shows.
 
 ## Objective
-The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform.
+The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform :
 
 ## 1. Count the number of Movies vs TV Shows
 
