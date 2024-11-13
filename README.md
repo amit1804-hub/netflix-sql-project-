@@ -1,6 +1,23 @@
 # Netflix Movies and TV Shows Data Analysis using SQL
 ![Netflix logo](https://github.com/amit1804-hub/netflix-sql-project-/blob/main/netflix%20logo.jpeg)
 
+# Netflix Content Distribution Analysis
+
+This repository contains an analysis of the content available on Netflix, specifically focusing on the distribution of Movies vs TV Shows.
+
+## Objective
+The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform.
+
+## Query
+
+We use SQL to analyze the `netflix` dataset. The following query is used to count the number of Movies and TV Shows in the dataset:
+
+```sql
+SELECT 
+    type, 
+    COUNT(*)
+FROM netflix
+GROUP BY type;
 
 ### project overview 
 ### project title : Netflix 
@@ -8,10 +25,10 @@
 ### Database: n1_sales_db
 
 
-# Overview
+ Overview
 This project involves a comprehensive analysis of Netflix's movies and TV shows data using SQL. The goal is to extract valuable insights and answer various business questions based on the dataset. The following README provides a detailed account of the project's objectives, business problems, solutions, findings, and conclusions.
 
-# Objectives
+Objectives
 Analyze the distribution of content types (movies vs TV shows).
 Identify the most common ratings for movies and TV shows.
 List and analyze content based on release years, countries, and durations.
@@ -214,15 +231,15 @@ GROUP BY category;
 
 ### Findings and Conclusion
 
-# Content Distribution: The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
-# Common Ratings: Insights into the most common ratings provide an understanding of the content's target audience.
-# Geographical Insights: The top countries and the average content releases by India highlight regional content distribution.
-# Content Categorization: Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
+ Content Distribution: The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
+ Common Ratings: Insights into the most common ratings provide an understanding of the content's target audience.
+ Geographical Insights: The top countries and the average content releases by India highlight regional content distribution.
+ Content Categorization: Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
  
  This analysis provides a comprehensive view of Netflix's content and can help inform content strategy and decision-making.
 
 # Author - Amit Wankhade
-# Thank you for your support, and I look forward to connecting with you!
+ Thank you for your support, and I look forward to connecting with you!
 
 
 
