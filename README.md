@@ -1,34 +1,16 @@
 # Netflix Movies and TV Shows Data Analysis using SQL
 ![Netflix logo](https://github.com/amit1804-hub/netflix-sql-project-/blob/main/netflix%20logo.jpeg)
 
-# Netflix Content Distribution Analysis
-
-This repository contains an analysis of the content available on Netflix, specifically focusing on the distribution of Movies vs TV Shows.
-
-## Objective
-The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform.
-
-## Query
-
-We use SQL to analyze the `netflix` dataset. The following query is used to count the number of Movies and TV Shows in the dataset:
-
-```sql
-SELECT 
-    type, 
-    COUNT(*)
-FROM netflix
-GROUP BY type;
-
 ### project overview 
 ### project title : Netflix 
 ### level : beginner 
 ### Database: n1_sales_db
 
 
- Overview
+# Overview
 This project involves a comprehensive analysis of Netflix's movies and TV shows data using SQL. The goal is to extract valuable insights and answer various business questions based on the dataset. The following README provides a detailed account of the project's objectives, business problems, solutions, findings, and conclusions.
 
-Objectives
+# Objectives
 Analyze the distribution of content types (movies vs TV shows).
 Identify the most common ratings for movies and TV shows.
 List and analyze content based on release years, countries, and durations.
@@ -56,8 +38,27 @@ description varchar(350)
 );
 
 #Business Problems and Solutions
+# Netflix Content Distribution Analysis
 
-### 1. Count the number of Movies vs TV Shows
+This repository contains an analysis of the content available on Netflix, specifically focusing on the distribution of Movies vs TV Shows.
+
+## Objective
+The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform.
+
+## Query
+
+We use SQL to analyze the `netflix` dataset. The following query is used to count the number of Movies and TV Shows in the dataset:
+
+```sql
+SELECT 
+    type, 
+    COUNT(*)
+FROM netflix
+GROUP BY type;
+
+
+
+# 1. Count the number of Movies vs TV Shows
 
 ''' 
 select type ,
@@ -65,9 +66,9 @@ count(*) as total_content
 from netflix
 group by 1; 
 
-### Objective: Determine the distribution of content types on Netflix.
+# Objective: Determine the distribution of content types on Netflix.
 
-### 2. Find the most common rating for movies and TV shows
+# 2. Find the most common rating for movies and TV shows
 
 '''
 select  type ,rating  
@@ -79,9 +80,9 @@ group by 1 ,2)
 as T1
 where ranking = 1 ;
 
-### Objective: Identify the most frequently occurring rating for each type of content.
+# Objective: Identify the most frequently occurring rating for each type of content.
 
-### 3. List all movies released in a specific year (e.g., 2020)
+# 3. List all movies released in a specific year (e.g., 2020)
 
 '''
 select * from netflix 
@@ -89,9 +90,9 @@ where type ilike 'Movie'
       and 
 	  releas_year = 2020;
    
-### Objective: Retrieve all movies released in a specific year.
+# Objective: Retrieve all movies released in a specific year.
 
-### 4. Find the Top 5 Countries with the Most Content on Netflix
+# 4. Find the Top 5 Countries with the Most Content on Netflix
 
  ''' 
  SELECT * 
@@ -106,9 +107,10 @@ FROM
 WHERE country IS NOT NULL
 ORDER BY total_content DESC
 LIMIT 5;
- ### Objective: Identify the top 5 countries with the highest number of content items.
 
-### 5. Identify the Longest Movie
+# Objective: Identify the top 5 countries with the highest number of content items.
+
+# 5. Identify the Longest Movie
 '''
 SELECT 
     *
@@ -116,17 +118,17 @@ FROM netflix
 WHERE type = 'Movie'
 ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC;
 
-### Objective: Find the movie with the longest duration.
+# Objective: Find the movie with the longest duration.
 
-### 6. Find Content Added in the Last 5 Years
+# 6. Find Content Added in the Last 5 Years
 
 ''' SELECT *
 FROM netflix
 WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years';
 
-### Objective: Retrieve content added to Netflix in the last 5 years.
+# Objective: Retrieve content added to Netflix in the last 5 years.
 
-### 7. Find All Movies/TV Shows by Director 'Rajiv Chilaka'
+# 7. Find All Movies/TV Shows by Director 'Rajiv Chilaka'
 
 ''' SELECT *
 FROM (
@@ -137,9 +139,9 @@ FROM (
 ) AS t
 WHERE director_name = 'Rajiv Chilaka';
 
-### Objective: List all content directed by 'Rajiv Chilaka'.
+# Objective: List all content directed by 'Rajiv Chilaka'.
 
-### 8. List All TV Shows with More Than 5 Seasons
+# 8. List All TV Shows with More Than 5 Seasons
 
 ''' 
 SELECT *
@@ -147,9 +149,9 @@ FROM netflix
 WHERE type = 'TV Show'
   AND SPLIT_PART(duration, ' ', 1)::INT > 5;
   
- ### Objective: Identify TV shows with more than 5 seasons.
+# Objective: Identify TV shows with more than 5 seasons.
 
-### 9. Count the Number of Content Items in Each Genre
+# 9. Count the Number of Content Items in Each Genre
 
 ''' SELECT 
     UNNEST(STRING_TO_ARRAY(listed_in, ',')) AS genre,
@@ -157,9 +159,9 @@ WHERE type = 'TV Show'
 FROM netflix
 GROUP BY 1;
 
-### Objective: Count the number of content items in each genre.
+# Objective: Count the number of content items in each genre.
 
-### 10.Find each year and the average numbers of content release in India on netflix return top 5 year with highest avg content release!.
+# 10.Find each year and the average numbers of content release in India on netflix return top 5 year with highest avg content release!.
 '''
 SELECT 
     country,
@@ -175,32 +177,32 @@ GROUP BY country, release_year
 ORDER BY avg_release DESC
 LIMIT 5;
 
-### Objective: Calculate and rank years by the average number of content releases by India.
+# Objective: Calculate and rank years by the average number of content releases by India.
 
-### 11. List All Movies that are Documentaries
+# 11. List All Movies that are Documentaries
 ''' SELECT * 
 FROM netflix
 WHERE listed_in LIKE '%Documentaries';
 
-### Objective: Retrieve all movies classified as documentaries.
+# Objective: Retrieve all movies classified as documentaries.
 
-### 12. Find All Content Without a Director
+# 12. Find All Content Without a Director
 ''' SELECT * 
 FROM netflix
 WHERE director IS NULL;
 
-### Objective: List content that does not have a director.
+# Objective: List content that does not have a director.
 
-### 13. Find How Many Movies Actor 'Salman Khan' Appeared in the Last 10 Years
+# 13. Find How Many Movies Actor 'Salman Khan' Appeared in the Last 10 Years
 '''
  SELECT * 
 FROM netflix
 WHERE casts LIKE '%Salman Khan%'
   AND release_year > EXTRACT(YEAR FROM CURRENT_DATE) - 10;
 
-### Objective: Count the number of movies featuring 'Salman Khan' in the last 10 years.
+# Objective: Count the number of movies featuring 'Salman Khan' in the last 10 years.
 
-### 14. Find the Top 10 Actors Who Have Appeared in the Highest Number of Movies Produced in India
+# 14. Find the Top 10 Actors Who Have Appeared in the Highest Number of Movies Produced in India
 '''
 SELECT 
     UNNEST(STRING_TO_ARRAY(casts, ',')) AS actor,
@@ -211,9 +213,9 @@ GROUP BY actor
 ORDER BY COUNT(*) DESC
 LIMIT 10;
 
-### Objective: Identify the top 10 actors with the most appearances in Indian-produced movies.
+# Objective: Identify the top 10 actors with the most appearances in Indian-produced movies.
 
-### 15. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
+# 15. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
 ''' SELECT 
     category,
     COUNT(*) AS content_count
@@ -227,9 +229,9 @@ FROM (
 ) AS categorized_content
 GROUP BY category; 
 
-### Objective: Categorize content as 'Bad' if it contains 'kill' or 'violence' and 'Good' otherwise. Count the number of items in each category.
+# Objective: Categorize content as 'Bad' if it contains 'kill' or 'violence' and 'Good' otherwise. Count the number of items in each category.
 
-### Findings and Conclusion
+# Findings and Conclusion
 
  Content Distribution: The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
  Common Ratings: Insights into the most common ratings provide an understanding of the content's target audience.
