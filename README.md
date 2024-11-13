@@ -45,20 +45,7 @@ This repository contains an analysis of the content available on Netflix, specif
 ## Objective
 The goal of this analysis is to determine the distribution of content types (Movies vs TV Shows) available on Netflix. This can provide insights into the types of content available on the platform.
 
-## Query
-
-We use SQL to analyze the `netflix` dataset. The following query is used to count the number of Movies and TV Shows in the dataset:
-
-```sql
-SELECT 
-    type, 
-    COUNT(*)
-FROM netflix
-GROUP BY type;
-
-
-
-# 1. Count the number of Movies vs TV Shows
+## 1. Count the number of Movies vs TV Shows
 
 ''' 
 select type ,
@@ -66,9 +53,9 @@ count(*) as total_content
 from netflix
 group by 1; 
 
-# Objective: Determine the distribution of content types on Netflix.
+## Objective: Determine the distribution of content types on Netflix.
 
-# 2. Find the most common rating for movies and TV shows
+## 2. Find the most common rating for movies and TV shows
 
 '''
 select  type ,rating  
@@ -80,9 +67,9 @@ group by 1 ,2)
 as T1
 where ranking = 1 ;
 
-# Objective: Identify the most frequently occurring rating for each type of content.
+## Objective: Identify the most frequently occurring rating for each type of content.
 
-# 3. List all movies released in a specific year (e.g., 2020)
+## 3. List all movies released in a specific year (e.g., 2020)
 
 '''
 select * from netflix 
@@ -90,9 +77,9 @@ where type ilike 'Movie'
       and 
 	  releas_year = 2020;
    
-# Objective: Retrieve all movies released in a specific year.
+## Objective: Retrieve all movies released in a specific year.
 
-# 4. Find the Top 5 Countries with the Most Content on Netflix
+## 4. Find the Top 5 Countries with the Most Content on Netflix
 
  ''' 
  SELECT * 
@@ -108,9 +95,9 @@ WHERE country IS NOT NULL
 ORDER BY total_content DESC
 LIMIT 5;
 
-# Objective: Identify the top 5 countries with the highest number of content items.
+## Objective: Identify the top 5 countries with the highest number of content items.
 
-# 5. Identify the Longest Movie
+## 5. Identify the Longest Movie
 '''
 SELECT 
     *
